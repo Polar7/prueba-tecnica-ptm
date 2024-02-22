@@ -41,6 +41,9 @@ public interface IProductMapper {
      * @return Valor calculado
      */
     default double calculateTotalValue(ProductEntity productEntity) {
-        return productEntity.getValue() * productEntity.getStock();
+        if (productEntity != null && productEntity.getValue() != null && productEntity.getStock() != null) {
+            return productEntity.getValue() * productEntity.getStock();
+        }
+        return 0;
     }
 }

@@ -17,6 +17,13 @@ public interface IProductServicePort {
     List<Product> getAll();
 
     /**
+     * Devuelve un producto dado su id
+     * @param idProduct Id del producto a buscar
+     * @return Optional del producto encontrado
+     */
+    Optional<Product> getProductById(Integer idProduct);
+
+    /**
      * Guarda un Producto
      * @param product Producto a guardar
      * @return Producto guardado

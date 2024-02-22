@@ -37,6 +37,16 @@ public class ProductServiceAdapter implements IProductServicePort {
     }
 
     /**
+     * Devuelve un producto dado su id
+     * @param idProduct Id del producto a buscar
+     * @return Optional del producto encontrado
+     */
+    @Override
+    public Optional<Product> getProductById(Integer idProduct) {
+        return repositoryPort.getProductById(idProduct);
+    }
+
+    /**
      * Guarda un Producto
      * @param product Producto a guardar
      * @return Producto guardado
