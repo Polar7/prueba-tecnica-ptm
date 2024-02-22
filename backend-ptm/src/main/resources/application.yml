@@ -9,3 +9,6 @@ spring:
     password: Root123.
   jpa:
     show-sql: true
+  springdoc:
+    swagger-ui:
+      path: /swagger-ui.html

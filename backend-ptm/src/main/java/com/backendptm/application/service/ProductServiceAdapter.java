@@ -1,5 +1,7 @@
 package com.backendptm.application.service;
 
+import com.backendptm.application.dto.ProductRequestDto;
+import com.backendptm.application.mapper.IProductRequestMapper;
 import com.backendptm.domain.model.Combination;
 import com.backendptm.domain.model.Product;
 import com.backendptm.domain.repository.IProductRepositoryPort;
@@ -24,11 +26,18 @@ public class ProductServiceAdapter implements IProductServicePort {
     private final IProductRepositoryPort repositoryPort;
 
     /**
+     * Mapper de un productRequest
+     */
+    private final IProductRequestMapper productRequestMapper;
+
+    /**
      * Construye el adaptador del servicio de Producto
      * @param repositoryPort Puerto del repository de producto
+     * @param productRequestMapper Mapper
      */
-    public ProductServiceAdapter(IProductRepositoryPort repositoryPort) {
+    public ProductServiceAdapter(IProductRepositoryPort repositoryPort, IProductRequestMapper productRequestMapper) {
         this.repositoryPort = repositoryPort;
+        this.productRequestMapper = productRequestMapper;
     }
 
     /**
@@ -56,8 +65,8 @@ public class ProductServiceAdapter implements IProductServicePort {
      * @return Producto guardado
      */
     @Override
-    public Product save(Product product) {
-        return repositoryPort.save(product);
+    public Product save(ProductRequestDto product) {
+        return repositoryPort.save(productRequestMapper.toProduct(product));
     }
 
     /**
@@ -66,7 +75,7 @@ public class ProductServiceAdapter implements IProductServicePort {
      * @return Producto modificado
      */
     @Override
-    public Optional<Product> update(Product product) {
+    public Optional<Product> update(ProductRequestDto product) {
         if (repositoryPort.getProductById(product.getId()).isEmpty()) {
             return Optional.empty();
         }

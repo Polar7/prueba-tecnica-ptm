@@ -1,5 +1,6 @@
 package com.backendptm.domain.service;
 
+import com.backendptm.application.dto.ProductRequestDto;
 import com.backendptm.domain.model.Combination;
 import com.backendptm.domain.model.Product;
 
@@ -29,14 +30,14 @@ public interface IProductServicePort {
      * @param product Producto a guardar
      * @return Producto guardado
      */
-    Product save(Product product);
+    Product save(ProductRequestDto product);
 
     /**
      * Modifica un Producto
      * @param product Producto a modificar
      * @return Producto modificado
      */
-    Optional<Product> update(Product product);
+    Optional<Product> update(ProductRequestDto product);
 
     /**
      * Elimina un producto dado su id
