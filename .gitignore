@@ -1,0 +1,82 @@
+
+backend-ptm/HELP.md
+backend-ptm/.gradle
+backend-ptm/build/
+backend-ptm/!gradle/wrapper/gradle-wrapper.jar
+backend-ptm/!**/src/main/**/build/
+backend-ptm/!**/src/test/**/build/
+
+### STS ###
+backend-ptm/.apt_generated
+backend-ptm/.classpath
+backend-ptm/.factorypath
+backend-ptm/.project
+backend-ptm/.settings
+backend-ptm/.springBeans
+backend-ptm/.sts4-cache
+backend-ptm/bin/
+backend-ptm/!**/src/main/**/bin/
+backend-ptm/!**/src/test/**/bin/
+
+### IntelliJ IDEA ###
+backend-ptm/.idea
+backend-ptm/*.iws
+backend-ptm/*.iml
+backend-ptm/*.ipr
+backend-ptm/out/
+backend-ptm/!**/src/main/**/out/
+backend-ptm/!**/src/test/**/out/
+
+### NetBeans ###
+backend-ptm/nbproject/private/
+backend-ptm/nbbuild/
+backend-ptm/dist/
+backend-ptm/nbdist/
+backend-ptm/.nb-gradle/
+
+### VS Code ###
+backend-ptm/.vscode/
+
+
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# Compiled output
+frontend-ptm/dist
+frontend-ptm/tmp
+frontend-ptm/out-tsc
+frontend-ptm/bazel-out
+
+# Node
+frontend-ptm/node_modules
+frontend-ptm/npm-debug.log
+frontend-ptm/yarn-error.log
+
+# IDEs and editors
+frontend-ptm/.idea/
+frontend-ptm/.project
+frontend-ptm/.classpath
+frontend-ptm/.c9/
+frontend-ptm/*.launch
+frontend-ptm/.settings/
+frontend-ptm/*.sublime-workspace
+
+# Visual Studio Code
+frontend-ptm/.vscode/*
+frontend-ptm/!.vscode/settings.json
+frontend-ptm/!.vscode/tasks.json
+frontend-ptm/!.vscode/launch.json
+frontend-ptm/!.vscode/extensions.json
+frontend-ptm/.history/*
+
+# Miscellaneous
+frontend-ptm/.angular/cache
+frontend-ptm/.sass-cache/
+frontend-ptm/connect.lock
+frontend-ptm/coverage
+frontend-ptm/libpeerconnection.log
+frontend-ptm/testem.log
+frontend-ptm/typings
+
+# System files
+frontend-ptm/.DS_Store
+frontend-ptm/Thumbs.db
