@@ -1,5 +1,6 @@
 package com.backendptm.infrastructure.api;
 
+import com.backendptm.domain.model.Combination;
 import com.backendptm.domain.model.Product;
 import com.backendptm.domain.service.IProductServicePort;
 import org.springframework.http.HttpStatus;
@@ -52,6 +53,16 @@ public class ProductController {
     @GetMapping(path = "/{id}")
     public ResponseEntity<Product> getProductById(@PathVariable Integer id) {
         return ResponseEntity.of(servicePort.getProductById(id));
+    }
+
+    /**
+     * Retorna una lista de combinaciones de nombres de productos con base al valor que llega por parametro
+     * @param valueFilter Valor que sirve de filtro para la combinacion
+     * @return HttpCode Ok con lista de productos de la combinacion
+     */
+    @GetMapping(path = "/combination/{valueFilter}")
+    public ResponseEntity<List<Combination>> getCombinationProducts(@PathVariable Double valueFilter) {
+        return ResponseEntity.ok(servicePort.getCombinationProducts(valueFilter));
     }
 
     /**
