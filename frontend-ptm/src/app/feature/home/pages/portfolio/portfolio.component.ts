@@ -4,6 +4,7 @@ import {ProductService} from "../../../../core/service/product.service";
 import {MeowFactsService} from "../../../../core/service/meow-facts.service";
 import Swal from "sweetalert2";
 import {CombinationDto} from "../../../../core/dto/combinationDto";
+import {Router} from "@angular/router";
 
 /**
  * Componente general donde se visualizan todos los productos
@@ -40,7 +41,7 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
    * @param productService Servicio de producto
    * @param meowFactService Servicio de datos de gatos
    */
-  constructor(private productService: ProductService, private meowFactService: MeowFactsService) {
+  constructor(private productService: ProductService, private meowFactService: MeowFactsService, private router: Router) {
   }
 
   /**
@@ -63,6 +64,20 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
   }
 
   /**
+   * Redirige a la pantalla de creacion del producto
+   */
+  public createProduct(): void {
+    this.router.navigate(["/crear-producto"])
+  }
+
+  /**
+   * Redirige a la pantalla de modificacion del producto
+   */
+  public modifyProduct(product: ProductDto): void {
+    this.router.navigate(["/crear-producto", product])
+  }
+
+  /**
    * Elimina un producto seleccionado en la tabla
    * @param idProduct ID del producto a eliminar
    */
@@ -77,19 +92,11 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
       if (result.isConfirmed) {
         this.productService.deleteProduct(idProduct).subscribe({
           next: value => {
-            if (value) {
-              Swal.fire({
-                title: "Producto eliminado correctamente",
-                icon: "success",
-                confirmButtonColor: "#013F4E",
-              });
-            } else {
-              Swal.fire({
-                title: "Error t&eacute;cnico al eliminar el producto",
-                icon: "success",
-                confirmButtonColor: "#013F4E",
-              });
-            }
+            Swal.fire({
+              title: "Producto eliminado correctamente",
+              icon: "success",
+              confirmButtonColor: "#013F4E",
+            });
           }
         });
       }

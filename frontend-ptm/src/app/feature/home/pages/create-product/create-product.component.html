@@ -1,0 +1,63 @@
+<section class="text-center text-lg-start">
+  <div class="container py-4">
+    <div class="row g-0 align-items-center">
+      <div class="col-lg-6 mb-5 mb-lg-0">
+        <div class="card cascading-right" style="
+            background: hsla(0, 0%, 100%, 0.55);
+            backdrop-filter: blur(30px);
+            ">
+          <div class="card-body p-5 shadow-5 text-center">
+            <form role="form" [formGroup]="registerProductForm">
+
+              <div class="form-outline mb-4">
+                <label class="form-label" for="form3Example4">ID del producto</label>
+                <input formControlName="id"
+                       type="number" id="form3Example4" class="form-control" placeholder="ID"/>
+              </div>
+
+              <div class="form-outline mb-4">
+                <label class="form-label" for="form3Example5">Nombre</label>
+                <input formControlName="name"
+                       type="text" id="form3Example5" class="form-control" placeholder="Nombre"/>
+              </div>
+
+              <div class="form-outline mb-4">
+                <label class="form-label" for="form3Example6">Descripci&oacute;n</label>
+                <input formControlName="description"
+                       type="text" id="form3Example6" class="form-control" placeholder="Descripci&oacute;n"/>
+              </div>
+
+              <div class="form-outline mb-4">
+                <label class="form-label" for="form3Example7">Precio</label>
+                <input formControlName="value"
+                       type="number" id="form3Example7" class="form-control" placeholder="Precio"/>
+              </div>
+
+              <div class="form-outline mb-4">
+                <label class="form-label" for="form3Example8">Stock</label>
+                <input formControlName="stock"
+                       type="number" id="form3Example8" class="form-control" placeholder="Stock"/>
+              </div>
+
+            </form>
+
+            @if (isModify) {
+              <button (click)="modifyProduct()" type="submit" class="btn btn-block mb-4" style="background-color: #63898C; color: white">
+                Modificar producto
+              </button>
+            } @else {
+              <button (click)="registerProduct()" type="submit" class="btn btn-block mb-4" style="background-color: #63898C; color: white">
+                Registrar producto
+              </button>
+            }
+
+            <button (click)="backToHome()" type="submit" class="btn btn-block mb-4 btn-danger">
+              Regresar
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
