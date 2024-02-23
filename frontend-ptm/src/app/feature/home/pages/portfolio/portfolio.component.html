@@ -1,0 +1,70 @@
+<br>
+
+<section class="intro">
+  <div class="bg-image h-100" style="background-color: #f5f7fa;">
+    <div class="mask d-flex align-items-center h-100">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-body p-0">
+                <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true" style="position: relative; height: 700px">
+                  <table class="table table-striped mb-0">
+                    <thead>
+                    <tr>
+                      <th scope="col">ID</th>
+                      <th scope="col">Nombre</th>
+                      <th scope="col">Descripci&oacute;n</th>
+                      <th scope="col">Precio</th>
+                      <th scope="col">Stock</th>
+                      <th scope="col">Total de inventario</th>
+                      <th scope="col">Modificar</th>
+                      <th scope="col">Eliminar</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                      @for (product of allProducts; track product.id) {
+                        <tr>
+                          <td>{{product.id}}</td>
+                          <td>{{product.name}}</td>
+                          <td>{{product.description}}</td>
+                          <td>{{product.value}}</td>
+                          <td>{{product.stock}}</td>
+                          <td>{{product.totalValue}}</td>
+                          <td><button type="button" class="btn" (click)="modifyProduct(product)" style="background-color: #0BA5BE; color: white">Editar</button></td>
+                          <td><button type="button" class="btn btn-danger" (click)="deleteProduct(product.id)">Eliminar</button></td>
+                        </tr>
+                      }
+                    </tbody>
+                  </table>
+                  <div class="row mt-4">
+                    <button type="button" class="btn" (click)="createProduct()" style="background-color: #63898C; color: white">Agregar nuevo producto</button>
+                  </div>
+                  <div class="row mt-4">
+                    <div class="col-2">
+                      <label><strong>Funcion combinatoria</strong></label>
+                    </div>
+                    <div class="col-4">
+                      <input type="number" class="form-control" placeholder="Valor" [(ngModel)]="valueFilterCombination">
+                    </div>
+                    <div class="col-4">
+                      <button type="button" class="btn" (click)="searchCombinationProducts()" style="background-color: #153f65; color: white">Buscar combinaciones</button>
+                    </div>
+                    <div class="col-4">
+                      @if (combinationList != null) {
+                        <label *ngFor="let item of combinationList">[{{ item.names }},{{ item.total }}]</label>
+                      }
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<br><br><br><br>
