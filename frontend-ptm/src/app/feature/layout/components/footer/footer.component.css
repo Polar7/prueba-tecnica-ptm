@@ -1,0 +1,17 @@
+footer {
+  background-color: #333;
+  color: #fff;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+.useless-fact-section {
+  background-color: #0BA5BE;
+  color: white;
+}
+
+.copyright-section {
+  background-color: #013F4E;
+  color: white;
+}
